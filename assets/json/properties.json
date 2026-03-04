@@ -1,0 +1,594 @@
+{
+  "pages": {
+    "login": {
+      "type": "GlassPage",
+      "templatePropertyType": "mainLogin",
+      "appBarTitle": "Login",
+      "showBackButton": false,
+      "children": [
+        {
+          "type": "SizedBox",
+          "height": 40
+        },
+        {
+          "type": "Text",
+          "text": "Welcome Back",
+          "textStyle": "heading1",
+          "alignment": "center"
+        },
+        {
+          "type": "SizedBox",
+          "height": 20
+        },
+        {
+          "type": "TextField",
+          "id": "userId",
+          "label": "User ID / Email",
+          "hintText": "Enter User ID",
+          "keyboardType": "email",
+          "icon": "person_outline",
+          "textFieldPropertyType": "typeGlass"
+        },
+        {
+          "type": "SizedBox",
+          "height": 20
+        },
+        {
+          "type": "TextField",
+          "id": "password",
+          "label": "Password",
+          "hintText": "Enter Password",
+          "isPassword": true,
+          "icon": "lock_outline",
+          "textFieldPropertyType": "typeGlass"
+        },
+        {
+          "type": "GestureDetectorText",
+          "text": "Forgot Password?",
+          "onTapAction": "goto_forgot_password",
+          "alignment": "end",
+          "textFieldPropertyType": "typeGlass",
+          "padding": {
+            "right": 16,
+            "bottom": 0
+          }
+        },
+        {
+          "type": "SizedBox",
+          "height": 20
+        },
+        {
+          "type": "Button",
+          "label": "Login",
+          "onPressed": "login_user",
+          "buttonStyleType": "typeLogin"
+        },
+        {
+          "type": "SizedBox",
+          "height": 20
+        },
+        {
+          "type": "Center",
+          "child": {
+            "type": "Text",
+            "text": "or continue with",
+            "textStyle": "bodySmall"
+          }
+        },
+        {
+          "type": "SizedBox",
+          "height": 20
+        },
+        {
+          "type": "Center",
+          "child": {
+            "type": "GestureDetectorIcon",
+            "icon": "0xe287",
+            "size": 60,
+            "color": "#FFFFFF",
+            "onTapAction": "authenticateWithBiometrics"
+          }
+        }
+      ],
+      "validation": {
+        "userId": {
+          "regex": ".+",
+          "errorMessage": "* Please enter User ID"
+        },
+        "password": {
+          "regex": ".+",
+          "errorMessage": "* Please enter Password"
+        }
+      }
+    },
+    "forgotPassword": {
+      "type": "GlassPage",
+      "templatePropertyType": "mainLogin",
+      "appBarTitle": "Forgot Password",
+      "showBackButton": true,
+      "children": [
+        {
+          "type": "SizedBox",
+          "height": 40
+        },
+        {
+          "type": "Text",
+          "text": "Reset Your Password",
+          "textStyle": "heading1",
+          "alignment": "center"
+        },
+        {
+          "type": "SizedBox",
+          "height": 10
+        },
+        {
+          "type": "Text",
+          "text": "Enter your email to receive password reset instructions",
+          "textStyle": "bodySmall",
+          "alignment": "center"
+        },
+        {
+          "type": "SizedBox",
+          "height": 30
+        },
+        {
+          "type": "TextField",
+          "id": "resetEmail",
+          "label": "Email Address",
+          "hintText": "Enter your email",
+          "keyboardType": "email",
+          "icon": "mail_outline",
+          "textFieldPropertyType": "typeGlass"
+        },
+        {
+          "type": "SizedBox",
+          "height": 30
+        },
+        {
+          "type": "Button",
+          "label": "Send Reset Link",
+          "onPressed": "send_reset_link",
+          "buttonStyleType": "typeLogin"
+        },
+        {
+          "type": "SizedBox",
+          "height": 20
+        },
+        {
+          "type": "Center",
+          "child": {
+            "type": "GestureDetectorText",
+            "text": "Back to Login",
+            "onTapAction": "goto_login",
+            "textStyle": "bodySmall"
+          }
+        }
+      ],
+      "validation": {
+        "resetEmail": {
+          "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+          "errorMessage": "* Please enter valid email"
+        }
+      }
+    },
+    "dashboard": {
+      "type": "ScaffoldPage",
+      "templatePropertyType": "mainDashboard",
+      "appBarTitle": "Dashboard",
+      "showBackButton": false,
+      "bottomNavigationBar": true,
+      "children": [
+        {
+          "type": "Container",
+          "padding": {
+            "all": 16
+          },
+          "child": {
+            "type": "Column",
+            "children": [
+              {
+                "type": "Card",
+                "elevation": 4,
+                "padding": 16,
+                "child": {
+                  "type": "Column",
+                  "children": [
+                    {
+                      "type": "Text",
+                      "text": "Welcome to Dashboard",
+                      "textStyle": "heading2"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 10
+                    },
+                    {
+                      "type": "Text",
+                      "text": "Your account overview is displayed below",
+                      "textStyle": "bodySmall"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "SizedBox",
+                "height": 20
+              },
+              {
+                "type": "GridView",
+                "crossAxisCount": 2,
+                "children": [
+                  {
+                    "type": "DashboardCard",
+                    "title": "Profile",
+                    "icon": "person",
+                    "color": "#FF6B6B",
+                    "onTap": "goto_profile"
+                  },
+                  {
+                    "type": "DashboardCard",
+                    "title": "Settings",
+                    "icon": "settings",
+                    "color": "#4ECDC4",
+                    "onTap": "goto_settings"
+                  },
+                  {
+                    "type": "DashboardCard",
+                    "title": "Notifications",
+                    "icon": "notifications",
+                    "color": "#FFE66D",
+                    "onTap": "goto_notifications"
+                  },
+                  {
+                    "type": "DashboardCard",
+                    "title": "Logout",
+                    "icon": "logout",
+                    "color": "#95E1D3",
+                    "onTap": "logout_user"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "profile": {
+      "type": "ScaffoldPage",
+      "templatePropertyType": "mainProfile",
+      "appBarTitle": "Profile",
+      "showBackButton": true,
+      "children": [
+        {
+          "type": "SingleChildScrollView",
+          "child": {
+            "type": "Column",
+            "children": [
+              {
+                "type": "SizedBox",
+                "height": 20
+              },
+              {
+                "type": "Center",
+                "child": {
+                  "type": "CircleAvatar",
+                  "radius": 60,
+                  "backgroundColor": "#4ECDC4",
+                  "child": {
+                    "type": "Icon",
+                    "icon": "person",
+                    "size": 60,
+                    "color": "#FFFFFF"
+                  }
+                }
+              },
+              {
+                "type": "SizedBox",
+                "height": 20
+              },
+              {
+                "type": "Center",
+                "child": {
+                  "type": "Text",
+                  "text": "John Doe",
+                  "textStyle": "heading2"
+                }
+              },
+              {
+                "type": "SizedBox",
+                "height": 5
+              },
+              {
+                "type": "Center",
+                "child": {
+                  "type": "Text",
+                  "text": "john.doe@example.com",
+                  "textStyle": "bodySmall"
+                }
+              },
+              {
+                "type": "SizedBox",
+                "height": 30
+              },
+              {
+                "type": "Container",
+                "padding": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "Column",
+                  "children": [
+                    {
+                      "type": "ProfileDetailField",
+                      "label": "Full Name",
+                      "value": "John Doe"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 15
+                    },
+                    {
+                      "type": "ProfileDetailField",
+                      "label": "Email",
+                      "value": "john.doe@example.com"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 15
+                    },
+                    {
+                      "type": "ProfileDetailField",
+                      "label": "Phone",
+                      "value": "+1 234 567 8900"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 15
+                    },
+                    {
+                      "type": "ProfileDetailField",
+                      "label": "Member Since",
+                      "value": "January 2024"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 30
+                    },
+                    {
+                      "type": "Button",
+                      "label": "Edit Profile",
+                      "onPressed": "edit_profile",
+                      "buttonStyleType": "typeLogin"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "settings": {
+      "type": "ScaffoldPage",
+      "templatePropertyType": "mainSettings",
+      "appBarTitle": "Settings",
+      "showBackButton": true,
+      "children": [
+        {
+          "type": "SingleChildScrollView",
+          "child": {
+            "type": "Column",
+            "children": [
+              {
+                "type": "SizedBox",
+                "height": 10
+              },
+              {
+                "type": "SettingsSectionHeader",
+                "title": "Display"
+              },
+              {
+                "type": "SettingsToggleItem",
+                "title": "Dark Mode",
+                "subtitle": "Enable dark theme",
+                "icon": "dark_mode",
+                "settingKey": "darkMode"
+              },
+              {
+                "type": "SettingsSectionHeader",
+                "title": "Notifications"
+              },
+              {
+                "type": "SettingsToggleItem",
+                "title": "Push Notifications",
+                "subtitle": "Receive push notifications",
+                "icon": "notifications",
+                "settingKey": "pushNotifications"
+              },
+              {
+                "type": "SettingsToggleItem",
+                "title": "Email Notifications",
+                "subtitle": "Receive email notifications",
+                "icon": "mail",
+                "settingKey": "emailNotifications"
+              },
+              {
+                "type": "SizedBox",
+                "height": 10
+              },
+              {
+                "type": "SettingsSectionHeader",
+                "title": "Security"
+              },
+              {
+                "type": "SettingsOptionItem",
+                "title": "Change Password",
+                "subtitle": "Update your password",
+                "icon": "lock",
+                "onTap": "change_password"
+              },
+              {
+                "type": "SettingsOptionItem",
+                "title": "Two-Factor Authentication",
+                "subtitle": "Add extra security",
+                "icon": "verified",
+                "onTap": "setup_2fa"
+              },
+              {
+                "type": "SizedBox",
+                "height": 10
+              },
+              {
+                "type": "SettingsSectionHeader",
+                "title": "About"
+              },
+              {
+                "type": "SettingsOptionItem",
+                "title": "App Version",
+                "subtitle": "1.0.0",
+                "icon": "info"
+              },
+              {
+                "type": "SettingsOptionItem",
+                "title": "Privacy Policy",
+                "subtitle": "View our privacy policy",
+                "icon": "privacy",
+                "onTap": "view_privacy_policy"
+              },
+              {
+                "type": "SizedBox",
+                "height": 30
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "notifications": {
+      "type": "ScaffoldPage",
+      "templatePropertyType": "mainNotifications",
+      "appBarTitle": "Notifications",
+      "showBackButton": true,
+      "children": [
+        {
+          "type": "SingleChildScrollView",
+          "child": {
+            "type": "Column",
+            "children": [
+              {
+                "type": "Container",
+                "padding": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "Column",
+                  "children": [
+                    {
+                      "type": "NotificationItem",
+                      "title": "Welcome!",
+                      "message": "Welcome to our application",
+                      "timestamp": "2 hours ago",
+                      "icon": "notifications",
+                      "color": "#4ECDC4"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 10
+                    },
+                    {
+                      "type": "NotificationItem",
+                      "title": "New Update",
+                      "message": "Version 1.0.1 is now available",
+                      "timestamp": "5 hours ago",
+                      "icon": "system_update",
+                      "color": "#FFE66D"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 10
+                    },
+                    {
+                      "type": "NotificationItem",
+                      "title": "Security Alert",
+                      "message": "New login from a new device",
+                      "timestamp": "1 day ago",
+                      "icon": "security",
+                      "color": "#FF6B6B"
+                    },
+                    {
+                      "type": "SizedBox",
+                      "height": 10
+                    },
+                    {
+                      "type": "NotificationItem",
+                      "title": "System Maintenance",
+                      "message": "Scheduled maintenance on Sunday",
+                      "timestamp": "2 days ago",
+                      "icon": "build",
+                      "color": "#95E1D3"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "styles": {
+    "textStyles": {
+      "heading1": {
+        "fontSize": 32,
+        "fontWeight": "bold",
+        "color": "#FFFFFF"
+      },
+      "heading2": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#FFFFFF"
+      },
+      "bodySmall": {
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "color": "#E0E0E0"
+      },
+      "body": {
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "color": "#FFFFFF"
+      }
+    },
+    "buttonStyles": {
+      "typeLogin": {
+        "backgroundColor": "#4ECDC4",
+        "foregroundColor": "#FFFFFF",
+        "padding": 16,
+        "fontSize": 16,
+        "borderRadius": 8,
+        "fontWeight": "bold"
+      }
+    },
+    "textFieldStyles": {
+      "typeGlass": {
+        "backgroundColor": "rgba(255, 255, 255, 0.1)",
+        "borderColor": "rgba(255, 255, 255, 0.3)",
+        "textColor": "#FFFFFF",
+        "hintColor": "rgba(255, 255, 255, 0.5)",
+        "labelColor": "#E0E0E0",
+        "borderRadius": 8,
+        "padding": 16,
+        "borderWidth": 1
+      }
+    },
+    "colors": {
+      "primary": "#4ECDC4",
+      "secondary": "#FF6B6B",
+      "accent": "#FFE66D",
+      "background": "#1A1A2E",
+      "surface": "rgba(255, 255, 255, 0.1)",
+      "error": "#FF6B6B",
+      "success": "#95E1D3"
+    }
+  }
+}
