@@ -55,7 +55,7 @@ class AppTheme {
         labelStyle: const TextStyle(color: textColorSecondary),
         hintStyle: const TextStyle(color: textColorSecondary),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: surfaceColor,
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -103,7 +103,7 @@ class AppTheme {
         color: textColor,
         size: 24,
       ),
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: primaryColor,
         secondary: secondaryColor,
         surface: surfaceColor,
@@ -155,7 +155,7 @@ class AppTheme {
         labelStyle: const TextStyle(color: textColorSecondary),
         hintStyle: const TextStyle(color: textColorSecondary),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: surfaceColor,
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -203,7 +203,7 @@ class AppTheme {
         color: textColor,
         size: 24,
       ),
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: primaryColor,
         secondary: secondaryColor,
         surface: surfaceColor,
